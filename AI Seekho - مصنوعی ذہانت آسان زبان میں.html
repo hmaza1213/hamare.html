@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html -->
+<html lang="ur" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Seekho - مصنوعی ذہانت آسان زبان میں</title>
+    <meta name="description" content="AI سیکھنے کا آسان اور مفت پلیٹ فارم۔ ویڈیو لیکچرز، پریکٹیکل ورکشاپس اور ریسرچ پیپرز سے AI کو سمجھیں۔">
+    <meta name="keywords" content="AI, مصنوعی ذہانت, مشین لرننگ, ڈیپ لرننگ, اردو">
+    <meta property="og:title" content="AI Seekho - مصنوعی ذہانت آسان زبان میں">
+    <meta property="og:description" content="AI سیکھنے کا آسان اور مفت پلیٹ فارم۔">
+    <style>
+        /* ===== بنیادی سیٹنگ ===== */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0ea5e9;
+            --text-color: #1f2937;
+            --bg-color: #f9fafb;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ہیڈر ===== */
+        .site-header {
+            background: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .site-header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== ہیرو سیکشن ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== پیج سیکشن ===== */
+        .page-section {
+            padding: 3rem 0;
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .page-section h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .page-section h2 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .page-section p, .page-section ul {
+            margin-bottom: 1rem;
+        }
+
+        .page-section ul {
+            padding-right: 2rem;
+        }
+
+        /* ===== لیکچرز گرڈ ===== */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filters select {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: var(--border-radius);
+        }
+
+        .lectures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .lecture-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .lecture-card h3 {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .lecture-meta {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        /* ===== لیکچر پیج ===== */
+        .lecture-detail {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 2rem;
+        }
+
+        .lecture-header {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .lecture-header h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin: 0.5rem 0;
+        }
+
+        .lecture-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .lecture-summary, .learning-objectives, .key-takeaways, .action-steps, .resources, .transcript, .references, .quiz-section {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+        }
+
+        .lecture-content h2 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        .lecture-content h3 {
+            margin-top: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .quiz-question {
+            background: var(--white);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            border: 1px solid #e5e7eb;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .check-answer-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .answer-feedback {
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        .share-btn {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+
+        /* ===== رابطہ فارم ===== */
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: var(--border-radius);
+            margin-top: 0.5rem;
+        }
+
+        .contact-form button {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* ===== فوٹر ===== */
+        .site-footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .site-footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        /* ===== ریسپانسوائ ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .lecture-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="container">
+            <div class="logo" onclick="showSection(&#39;home&#39;)">AI Seekho</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a onclick="showSection(&#39;home&#39;)">ہوم</a></li>
+                <li><a onclick="showSection(&#39;about&#39;)">ہمارے بارے میں</a></li>
+                <li><a onclick="showSection(&#39;lectures&#39;)">لیکچرز</a></li>
+                <li><a onclick="showSection(&#39;blog&#39;)">بلاگ</a></li>
+                <li><a onclick="showSection(&#39;resources&#39;)">ریسرز</a></li>
+                <li><a onclick="showSection(&#39;contact&#39;)">رابطہ</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== ہوم پیج ===== -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="container">
+                    <h1>مصنوعی ذہانت کو آسان بنائیں</h1>
+                    <p class="hero-subtitle">AI کی دنیا کو سادہ اردو میں سمجھیں اور عملی طور پر استعمال کرنا سیکھیں۔ مفت لیکچرز، پریکٹیکل ورکشاپس اور ماہرین کی رہنمائی۔</p>
+                    <div class="hero-features">
+                        <div class="feature">🎓 50+ مفت لیکچرز</div>
+                        <div class="feature">⚡ 10 منٹ کے OSM لیکچرز</div>
+                        <div class="feature">📱 موبائل فرینڈلی</div>
+                    </div>
+                    <button class="cta-button" onclick="showSection(&#39;lectures&#39;)">ابھی شروع کریں</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About پیج ===== -->
+        <section id="about" class="page-section">
+            <div class="container">
+                <h1>ہمارے بارے میں</h1>
+                <h2>ہمارا مشن</h2>
+                <p>AI Seekho کا مشن ہے کہ ہر پاکستانی طالب علم، پیشہ ور اور دلچسپی رکھنے والے شخص تک مصنوعی ذہانت کی تعلیم کو آسان، مفت اور عملی بنایا جائے۔ ہمیں یقین ہے کہ AI صرف تعلیم یافتہ افراد کے لیے نہیں، بلکہ ہر اس شخص کے لیے ہے جو اپنے مستقبل کو بہتر بنانا چاہتا ہے۔</p>
+                <h2>ہم کیا پیش کرتے ہیں؟</h2>
+                <ul>
+                    <li>10-15 منٹ کے مکمل لیکچرز</li>
+                    <li>عملی ورکشاپس اور ایکسرائزز</li>
+                    <li>مفت ڈاؤن لوڈ ایبل مواد</li>
+                    <li>ماہرین سے براہ راست سوال جواب</li>
+                </ul>
+                <h2>ہماری ٹیم</h2>
+                <p>ہماری ٹیم AI کے ماہرین، سافٹ ویئر انجینئرز اور تعلیمی نفسیات کے ماہرین پر مشتمل ہے جو مل کر آپ کے لیے بہترین کورسز اور لیکچرز تیار کرتے ہیں۔</p>
+            </div>
+        </section>
+
+        <!-- ===== Lectures انڈیکس ===== -->
+        <section id="lectures" class="page-section">
+            <div class="container">
+                <h1>تمام لیکچرز</h1>
+                <div class="filters">
+                    <select id="topicFilter" onchange="filterLectures()">
+                        <option value="">موضوع</option>
+                        <option value="basics">بنیادی</option>
+                        <option value="ml">مشین لرننگ</option>
+                        <option value="dl">ڈیپ لرننگ</option>
+                        <option value="nlp">NLP</option>
+                    </select>
+                    <select id="durationFilter" onchange="filterLectures()">
+                        <option value="">دورانیہ</option>
+                        <option value="short">5-10 min</option>
+                        <option value="medium">10-20 min</option>
+                        <option value="long">20+ min</option>
+                    </select>
+                    <select id="levelFilter" onchange="filterLectures()">
+                        <option value="">سطح</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="lectures-grid" id="lecturesGrid">
+                    <div class="lecture-card" data-topic="basics" data-duration="short" data-level="beginner" onclick="showLectureDetail()">
+                        <h3>تعارفِ مصنوعی ذہانت (AI)</h3>
+                        <p class="lecture-meta">دورانیہ: 10 منٹ | سطح: Beginner</p>
+                        <p class="lecture-summary">AI کیا ہے، روزمرہ زندگی میں کہاں استعمال ہوتا ہے، اور بنیادی خیال سمجھیں۔</p>
+                    </div>
+                    <div class="lecture-card" data-topic="ml" data-duration="medium" data-level="intermediate">
+                        <h3>مشین لرننگ الگورتھمز</h3>
+                        <p class="lecture-meta">دورانیہ: 15 منٹ | سطح: Intermediate</p>
+                        <p class="lecture-summary">Supervised اور Unsupervised Learning کے بنیادی الگورتھم سمجھیں۔</p>
+                    </div>
+                    <div class="lecture-card" data-topic="dl" data-duration="long" data-level="advanced">
+                        <h3>نورل نیٹ ورکس: ڈیپ ڈائیو</h3>
+                        <p class="lecture-meta">دورانیہ: 25 منٹ | سطح: Advanced</p>
+                        <p class="lecture-summary">Deep Neural Networks کی اندرونی ورکنگ تفصیل سے سمجھیں۔</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== لیکچر ڈیٹیل پیج ===== -->
+        <section id="lecture-detail" class="page-section">
+            <div class="container">
+                <article class="lecture-detail">
+                    <header class="lecture-header">
+                        <h1>تعارفِ مصنوعی ذہانت (AI) — بنیادی باتیں</h1>
+                        <p class="subtitle">AI کی دنیا میں پہلا قدم: بنیادی تصورات سمجھیں اور عملی طور پر استعمال کرنا سیکھیں</p>
+                        <div class="lecture-meta">
+                            <span>⏱️ <strong>دورانیہ:</strong> 10 منٹ</span>
+                            <span>🌐 <strong>زبان:</strong> اردو / Hinglish</span>
+                            <span>📊 <strong>سطح:</strong> Beginner</span>
+                        </div>
+                    </header>
+
+                    <section class="lecture-summary">
+                        <h2>لیکچر کا خلاصہ</h2>
+                        <p>یہ لیکچر آپ کو بتائے گا کہ AI کیا ہے، روزمرہ زندگی میں کہاں استعمال ہوتا ہے، اور ایک عام مثال کے ذریعے بنیادی خیال سمجھائے گا۔ آپ سیکھیں گے کہ AI ڈیٹا اور الگورتھمز پر کیسے کام کرتی ہے، نیز اس کی اہمیت اور ذمہ دارانہ استعمال کے اصول۔</p>
+                    </section>
+
+                    <section class="learning-objectives">
+                        <h2>سیکھنے کے مقاصد</h2>
+                        <ul>
+                            <li>AI کی تعریف اور بنیادی تصور سمجھیں</li>
+                            <li>روزمرہ زندگی میں AI کے 3+ استعمال کی جگہیں پہچانیں</li>
+                            <li>ڈیٹا اور الگورتھم کی اہمیت سمجھیں</li>
+                            <li>AI کے بنیادی چیلنجز اور ذمہ داریوں کو جانیں</li>
+                        </ul>
+                    </section>
+
+                    <section class="lecture-content">
+                        <h2>لیکچر: تعارفِ مصنوعی ذہانت (AI)</h2>
+                        
+                        <h3>🎯 سیکشن 1: AI کیا ہے؟</h3>
+                        <p>مصنوعی ذہانت (AI) وہ ٹیکنالوجی ہے جو مشینوں کو انسانوں جیسی سوجھ بوجھ اور فیصلہ سازی دینے کی کوشش کرتی ہے۔ یعنی کمپیوٹر خود سوچے، سیکھے اور مسائل حل کرے۔</p>
+                        <p>بنیادی طور پر AI دو چیزوں پر کھڑی ہے:</p>
+                        <ul>
+                            <li><strong>ڈیٹا:</strong> جو AI کو سکھاتا ہے (مثلاً ہزاروں تصاویر، ٹیکسٹ، وغیرہ)</li>
+                            <li><strong>الگورتھم:</strong> جو فیصلے لیتا ہے (قواعد اور ماڈلز)</li>
+                        </ul>
+
+                        <h3>🤔 سیکشن 2: روزمرہ میں AI کہاں ہے؟</h3>
+                        <p>ہمیں روزانہ AI کئی جگہ نظر آتا ہے:</p>
+                        <ul>
+                            <li><strong>سرچ انجن:</strong> آپ کیا ٹائپ کرتے ہیں، اسے سمجھ کر بہترین نتائج دینا</li>
+                            <li><strong>موبائل کا وائس اسسٹنٹ:</strong> Siri, Google Assistant آپ کی بات کو سمجھتے ہیں</li>
+                            <li><strong>سوشل میڈیا:</strong> کون سا مواد دکھانا ہے، کس اشتہار کو دکھانا ہے</li>
+                            <li><strong>Netflix:</strong> آپ کو کون سی فلم پسند آئے گی، یہ پیش گوئی کرنا</li>
+                            <li><strong>GPS:</strong> ٹریفیک دیکھ کر بہترین راستہ بتانا</li>
+                        </ul>
+
+                        <h3>📸 سیکشن 3: مثال سے سمجھیں</h3>
+                        <p>فرض کریں آپ نے ایک فوٹو ایپ کو ہزاروں بلیوں کی تصویریں دکھائیں، ہر تصویر پر لکھا "یہ بلی ہے"۔ اب AI کو:</p>
+                        <ol>
+                            <li>ڈیٹا ملے گا: ہزاروں بلیوں کی تصاویر</li>
+                            <li>الگورتھم سیکھے گا: بلی کی خصوصیات (چہرہ، داڑھی، آواز)</li>
+                            <li>نئی تصویر میں پہچانے گا: یہ بلی ہے یا نہیں</li>
+                        </ol>
+                        <p>یہی عمل Face Unlock, Medical Diagnosis اور کاروں میں بھی ہوتا ہے۔</p>
+
+                        <h3>⚠️ سیکشن 4: ذمہ داری سے استعمال</h3>
+                        <p>AI ہمارے کام آسان کرتی ہے مگر اسے سمجھ کر استعمال کرنا ضروری ہے:</p>
+                        <ul>
+                            <li><strong>ڈیٹا کی صفائی:</strong> اگر ڈیٹا غلط ہو، AI غلط سیکھے گا</li>
+                            <li><strong>ذاتی پرائیویسی:</strong> AI کو آپ کا ڈیٹا کب اور کیوں چاہیے</li>
+                            <li><strong>غلط فیصلے:</strong> AI ہمیشہ صحیح نہیں ہوتا، انسان کا دماغ ضروری ہے</li>
+                        </ul>
+                    </section>
+
+                    <section class="key-takeaways">
+                        <h2>Key Takeaways</h2>
+                        <ul>
+                            <li>AI = ڈیٹا + الگورتھم، یہ مشینوں کو سیکھنے اور فیصلے کرنے کی قابلیت دیتا ہے</li>
+                            <li>روزمرہ میں AI ہمارے فون، کار، سوشل میڈیا اور ہیلتھ کیئر میں موجود ہے</li>
+                            <li>AI کو ذمہ دارانہ استعمال کرنا ضروری ہے، خاص طور پر پرائیویسی اور غلطیوں سے بچاؤ</li>
+                        </ul>
+                    </section>
+
+                    <section class="action-steps">
+                        <h2>عملی قدم (Action Steps)</h2>
+                        <ol>
+                            <li><strong>ہفتہ 1:</strong> اپنے فون میں AI سروسز نوٹ کریں (Siri, Recommendations) اور ان کی مدد لکھیں</li>
+                            <li><strong>ہفتہ 2:</strong> ChatGPT یا Google Bard سے 5 سوال پوچھیں اور جواب کی درستگی چیک کریں</li>
+                            <li><strong>ہفتہ 3:</strong> اپنی 10 تصاویر AI فوٹو ایپ میں چیک کریں، کیا وہ صحیح ٹیگ کرتا ہے؟</li>
+                        </ol>
+                    </section>
+
+                    <section class="quiz-section">
+                        <h2>کوئز (Quiz)</h2>
+                        <div class="quiz-question" data-answer="b">
+                            <p><strong>Q1:</strong> AI کی بنیاد کیا ہے؟</p>
+                            <label><input type="radio" name="q1" value="a"> a) صرف الگورتھم</label>
+                            <label><input type="radio" name="q1" value="b"> b) ڈیٹا + الگورتھم</label>
+                            <label><input type="radio" name="q1" value="c"> c) صرف کمپیوٹر</label>
+                            <button class="check-answer-btn" onclick="checkAnswer(this)">چیک کریں</button>
+                            <div class="answer-feedback"></div>
+                        </div>
+
+                        <div class="quiz-question" data-answer="c">
+                            <p><strong>Q2:</strong> مندرجہ میں سے کون AI کی مثال نہیں؟</p>
+                            <label><input type="radio" name="q2" value="a"> a) فون کا فیس Unlock</label>
+                            <label><input type="radio" name="q2" value="b"> b) Netflix کی سجیشنز</label>
+                            <label><input type="radio" name="q2" value="c"> c) کیلکولیٹر کا حساب</label>
+                            <button class="check-answer-btn" onclick="checkAnswer(this)">چیک کریں</button>
+                            <div class="answer-feedback"></div>
+                        </div>
+
+                        <div class="quiz-question" data-answer="a">
+                            <p><strong>Q3:</strong> AI کو استعمال کرتے وقت سب سے اہم بات؟</p>
+                            <label><input type="radio" name="q3" value="a"> a) پرائیویسی اور غلطیوں سے بچاؤ</label>
+                            <label><input type="radio" name="q3" value="b"> b) زیادہ سپیڈ</label>
+                            <label><input type="radio" name="q3" value="c"> c) کم قیمت</label>
+                            <button class="check-answer-btn" onclick="checkAnswer(this)">چیک کریں</button>
+                            <div class="answer-feedback"></div>
+                        </div>
+                    </section>
+
+                    <section class="resources">
+                        <h2>ڈاؤن لوڈ ایبل ریسورسز</h2>
+                        <ul>
+                            <li>📄 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;PDF ڈاؤن لوڈ کا لنک یہاں ہوگا&#39;)">لیکچر نوٹس (PDF)</a> — 2 صفحات</li>
+                            <li>📊 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;PPTX ڈاؤن لوڈ کا لنک یہاں ہوگا&#39;)">سلائیڈ ڈیک (PPTX)</a> — 10 سلائیڈز</li>
+                            <li>🎧 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;MP3 ڈاؤن لوڈ کا لنک یہاں ہوگا&#39;)">آڈیو ورژن (MP3)</a> — 10 منٹ</li>
+                        </ul>
+                    </section>
+
+                    <section class="transcript">
+                        <h2>ٹرانسکرپٹ (پورا متن)</h2>
+                        <p><strong>[00:00-01:00]</strong> السلام علیکم! آج ہم AI کے بارے میں بنیادی باتیں سیکھیں گے۔</p>
+                        <p><strong>[01:00-03:30]</strong> AI وہ ٹیکنالوجی ہے جو مشینوں کو انسانوں جیسی سوجھ بوجھ دینے کی کوشش کرتی ہے...</p>
+                        <p><strong>[03:30-06:00]</strong> روزمرہ میں AI: سرچ انجن، وائس اسسٹنٹ، سوشل میڈیا...</p>
+                        <p><strong>[06:00-08:30]</strong> مثال: بلی کی تصاویر سے AI کو بلی کیسے سیکھاتے ہیں...</p>
+                        <p><strong>[08:30-10:00]</strong> ذمہ داری: ڈیٹا صفائی، پرائیویسی، غلط فیصلے...</p>
+                    </section>
+
+                    <section class="references">
+                        <h2>مزید پڑھنے کے لیے</h2>
+                        <ul>
+                            <li><a href="https://ai.google/" target="_blank">Google AI</a> — بنیادی گائیڈز</li>
+                            <li><a href="https://www.ibm.com/cloud/learn/what-is-artificial-intelligence" target="_blank">IBM AI Basics</a> — انگریزی</li>
+                            <li><a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="showSection(&#39;blog&#39;)">ہمارا بلاگ: AI کی اخلاقیات</a></li>
+                        </ul>
+                    </section>
+
+                    <section class="social-share">
+                        <h2>شیئر کریں</h2>
+                        <button class="share-btn" onclick="shareOnTwitter()">Twitter پر شیئر</button>
+                        <button class="share-btn" onclick="shareOnFacebook()">Facebook پر شیئر</button>
+                    </section>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== بلاگ پیج ===== -->
+        <section id="blog" class="page-section">
+            <div class="container">
+                <h1>بلاگ</h1>
+                <article class="blog-post">
+                    <h2>AI کی اخلاقیات: ہمیں کیا خیال رکھنا چاہیے؟</h2>
+                    <p class="post-meta">تاریخ: 15 جنوری 2025 | مصنف: ڈاکٹر فاطمہ</p>
+                    <p>AI کو بناتے وقت ہمیں کیا اخلاقی اصولوں کا خیال رکھنا چاہیے؟ یہ آرٹیکل اہم نکات بیان کرتا ہے...</p>
+                    <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;مکمل آرٹیکل یہاں آئے گا&#39;)">مکمل پڑھیں →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== ریسورسز پیج ===== -->
+        <section id="resources" class="page-section">
+            <div class="container">
+                <h1>ریسرز اور ڈاؤن لوڈز</h1>
+                <ul>
+                    <li>📄 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;Cheatsheet ڈاؤن لوڈ ہوگی&#39;)">AI Basics Cheatsheet (PDF)</a></li>
+                    <li>📊 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;ٹیمپلیٹ ڈاؤن لوڈ ہوگا&#39;)">AI پروجیکٹ ٹیمپلیٹ (Excel)</a></li>
+                    <li>🎬 <a href="http://127.0.0.1:5500/my%20farsit%20javascrept%20class/hamre.html#" onclick="alert(&#39;ویڈیو سیریز ڈاؤن لوڈ ہوگی&#39;)">ML پر ویڈیو سیریز (MP4)</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== رابطہ پیج ===== -->
+        <section id="contact" class="page-section">
+            <div class="container">
+                <h1>رابطہ اور فیڈ بیک</h1>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <label>نام:</label>
+                    <input type="text" required="">
+                    <label>ای میل:</label>
+                    <input type="email" required="">
+                    <label>پیغام:</label>
+                    <textarea rows="5" required=""></textarea>
+                    <button type="submit">بھیجیں</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== پرائیویسی پیج ===== -->
+        <section id="privacy" class="page-section">
+            <div class="container">
+                <h1>پرائیویسی پالیسی</h1>
+                <p>ہم آپ کا ڈیٹا کسی تیسرے فریق کو نہیں بیچتے۔ بس لیکچرز کو بہتر بنانے کے لیے فیڈ بیک استعما لیتے ہیں۔</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 AI Seekho. تمام حقوق محفوظ ہیں۔</p>
+            <p><a onclick="showSection(&#39;privacy&#39;)">پرائیویسی پالیسی</a> | <a onclick="showSection(&#39;privacy&#39;)">شرائط و ضوابط</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== موبائل مینو ٹوگل =====
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // ===== سیکشنز کو دکھانے/چھپانے کا فنکشن =====
+        function showSection(sectionName) {
+            // تمام سیکشنز چھپائیں
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // مطلوبہ سیکشن دکھائیں
+            document.getElementById(sectionName).classList.add('active');
+            // موبائل مینو بند کریں
+            document.getElementById('navMenu').classList.remove('active');
+        }
+
+        // ===== لیکچر ڈیٹیل پیج دکھائیں =====
+        function showLectureDetail() {
+            showSection('lecture-detail');
+        }
+
+        // ===== لیکچرز فلٹر =====
+        function filterLectures() {
+            const topic = document.getElementById('topicFilter').value;
+            const duration = document.getElementById('durationFilter').value;
+            const level = document.getElementById('levelFilter').value;
+
+            document.querySelectorAll('.lecture-card').forEach(card => {
+                const cardTopic = card.dataset.topic;
+                const cardDuration = card.dataset.duration;
+                const cardLevel = card.dataset.level;
+
+                const topicMatch = !topic || cardTopic === topic;
+                const durationMatch = !duration || cardDuration === duration;
+                const levelMatch = !level || cardLevel === level;
+
+                card.style.display = topicMatch && durationMatch && levelMatch ? 'block' : 'none';
+            });
+        }
+
+        // ===== کوئز چیک کریں =====
+        function checkAnswer(button) {
+            const questionDiv = button.parentElement;
+            const correctAnswer = questionDiv.dataset.answer;
+            const selectedAnswer = questionDiv.querySelector('input[type="radio"]:checked');
+            const feedback = questionDiv.querySelector('.answer-feedback');
+
+            if (!selectedAnswer) {
+                feedback.textContent = 'برائے مہربانی کوئی جواب منتخب کریں۔';
+                feedback.style.color = '#f59e0b';
+                return;
+            }
+
+            if (selectedAnswer.value === correctAnswer) {
+                feedback.textContent = '✅ درست! بہت خوب۔';
+                feedback.style.color = '#10b981';
+            } else {
+                feedback.textContent = '❌ غلط، دوبارہ کوشش کریں۔';
+                feedback.style.color = '#ef4444';
+            }
+        }
+
+        // ===== سوشل شیئر =====
+        function shareOnTwitter() {
+            const text = "AI کو آسان زبان میں سیکھیں! تعارفِ مصنوعی ذہانت (AI) — بنیادی باتیں";
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        // ===== رابطہ فارم =====
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('شکریہ! آپ کا پیغام موصول ہو گیا۔ ہم جلد جواب دیں گے۔');
+            event.target.reset();
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
